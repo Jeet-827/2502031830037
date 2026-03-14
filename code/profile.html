@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile - AI Coding Tutor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-brand" href="index.html">
+        <span class="brand-icon"><i class="fas fa-robot"></i></span>
+        <span class="brand-text">AI <strong>CODING TUTOR</strong></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="learn.html" class="nav-link">Learn</a></li>
+        <li><a href="practice.html" class="nav-link">Practice</a></li>
+        <li><a href="chat.html" class="nav-link">AI Chat</a></li>
+        <li><a href="profile.html" class="nav-link active">Profile</a></li>
+        <li><a href="login.html" class="nav-link">Login</a></li>
+        <li><a href="learn.html" class="btn btn-primary nav-cta">Get Started</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="appRoot">
+    <section class="page active">
+      <div class="page-hero gradient-hero">
+        <h1>Track Your Progress<br><span class="gradient-text">&amp; Earn Certificates</span></h1>
+        <p>Every challenge completed brings you closer to mastery</p>
+      </div>
+      <div class="section">
+        <div class="section-container">
+          <div class="profile-layout">
+            <div class="profile-left">
+              <div class="profile-card">
+                <div class="profile-avatar">
+                  <div class="avatar-ring">
+                    <i class="fas fa-user-astronaut"></i>
+                  </div>
+                  <div class="profile-badge-icon"><i class="fas fa-star" style="color:#fadb14"></i></div>
+                </div>
+                <h3 class="profile-name">Alex Developer</h3>
+                <p class="profile-title">Full Stack Learner</p>
+                <div class="profile-stats">
+                  <div class="ps-item"><strong id="goalsCount">164</strong><small>Goals Done</small></div>
+                  <div class="ps-item"><strong id="savesCount">48</strong><small>Saves</small></div>
+                  <div class="ps-item"><strong id="streakCount">7</strong><small>Day Streak</small></div>
+                </div>
+                <button class="btn btn-primary" style="width:100%"><i class="fas fa-share-alt"></i> Share Profile</button>
+              </div>
+
+              <div class="skills-card">
+                <h4>Skill Levels</h4>
+                <div class="skill-row"><span>HTML <i class="fab fa-html5" style="color:#e44d26"></i></span><div class="skill-bar"><div class="skill-fill" data-w="85" style="width:85%; background:linear-gradient(90deg, #e44d26, #f16529)"></div></div><span>85%</span></div>
+                <div class="skill-row"><span>CSS <i class="fab fa-css3-alt" style="color:#264de4"></i></span><div class="skill-bar"><div class="skill-fill" data-w="70" style="width:70%; background:linear-gradient(90deg, #264de4, #2965f1)"></div></div><span>70%</span></div>
+                <div class="skill-row"><span>JS <i class="fab fa-js" style="color:#f7df1e"></i></span><div class="skill-bar"><div class="skill-fill" data-w="55" style="width:55%; background:linear-gradient(90deg, #f7df1e, #e5c100)"></div></div><span>55%</span></div>
+                <div class="skill-row"><span>Python <i class="fab fa-python" style="color:#3776ab"></i></span><div class="skill-bar"><div class="skill-fill" data-w="30" style="width:30%; background:linear-gradient(90deg, #3776ab, #ffd43b)"></div></div><span>30%</span></div>
+              </div>
+            </div>
+
+            <div class="profile-right">
+              <div class="certs-section">
+                <h3>🏆 Your Certificates</h3>
+                <div class="certs-grid">
+                  <div class="cert-card earned">
+                    <div class="cert-icon" style="color:#e44d26"><i class="fab fa-html5"></i></div>
+                    <div class="cert-badge" style="color:#fadb14"><i class="fas fa-certificate"></i></div>
+                    <strong>HTML</strong><small>Certified</small>
+                  </div>
+                  <div class="cert-card earned">
+                    <div class="cert-icon" style="color:#264de4"><i class="fab fa-css3-alt"></i></div>
+                    <div class="cert-badge" style="color:#fadb14"><i class="fas fa-certificate"></i></div>
+                    <strong>CSS</strong><small>Certified</small>
+                  </div>
+                  <div class="cert-card in-progress">
+                    <div class="cert-icon" style="color:#f7df1e"><i class="fab fa-js"></i></div>
+                    <div class="cert-badge locked" style="color:#8892b0"><i class="fas fa-lock"></i></div>
+                    <strong>JavaScript</strong><small>In Progress</small>
+                  </div>
+                  <div class="cert-card locked">
+                    <div class="cert-icon dim" style="color:#8892b0"><i class="fab fa-python"></i></div>
+                    <div class="cert-badge locked" style="color:#8892b0"><i class="fas fa-lock"></i></div>
+                    <strong>Python</strong><small>Locked</small>
+                  </div>
+                </div>
+                <div class="ai-certified-banner">
+                  <div class="ai-cert-left">
+                    <i class="fas fa-robot"></i>
+                    <div><strong>AI Certified</strong><br><small>Powered by AI Coding Tutor</small></div>
+                  </div>
+                  <button class="btn btn-primary" id="downloadCertBtn"><i class="fas fa-download"></i> Download Certificates</button>
+                </div>
+              </div>
+
+              <div class="profile-tabs">
+                <button class="tab-btn active" data-ptab="goals">Goals</button>
+                <button class="tab-btn" data-ptab="try-counter">Try Counter</button>
+                <button class="tab-btn" data-ptab="progress">Progress</button>
+                <button class="tab-btn" data-ptab="certificates">Certificates</button>
+              </div>
+              <div class="profile-tab-content">
+                <div class="ptab active" id="ptab-goals">
+                  <div class="daily-tasks">
+                    <div class="task-header"><span>Daily Coding Tasks</span><span class="task-meta" style="color:#00d4ff"><i class="fas fa-fire" style="color:#ff6b35"></i> +14 XP</span></div>
+                    <div class="task-item completed" style="opacity:0.5"><i class="fas fa-check-circle" style="color:#00e5ff"></i> <span>Solve any JavaScript challenge in under 2 minutes</span></div>
+                    <div class="task-item completed" style="opacity:0.5"><i class="fas fa-check-circle" style="color:#00e5ff"></i> <span>Fix the CSS to handle accessibility properly</span></div>
+                    <div class="task-item"><i class="far fa-circle"></i> <span>Update the CSS to ensure it is responsive</span></div>
+                    <div class="task-item"><i class="far fa-circle"></i> <span>Implement an async function in Python</span></div>
+                  </div>
+                </div>
+                <div class="ptab" id="ptab-try-counter">
+                  <p class="coming-soon">📊 Try counter analytics coming soon!</p>
+                </div>
+                <div class="ptab" id="ptab-progress">
+                  <p class="coming-soon">📈 Detailed progress charts coming soon!</p>
+                </div>
+                <div class="ptab" id="ptab-certificates">
+                  <p class="coming-soon">🏅 All certificates view coming soon!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.tab-btn');
+      const ptabs = document.querySelectorAll('.ptab');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          tabs.forEach(t => t.classList.remove('active'));
+          ptabs.forEach(p => p.classList.remove('active'));
+          
+          this.classList.add('active');
+          const target = this.getAttribute('data-ptab');
+          const content = document.getElementById('ptab-' + target);
+          if(content) content.classList.add('active');
+        });
+      });
+      
+      const downloadBtn = document.getElementById('downloadCertBtn');
+      if(downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+          alert('Starting certificate download...');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

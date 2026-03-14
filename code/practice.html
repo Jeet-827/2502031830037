@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practice - AI Coding Tutor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-brand" href="index.html">
+        <span class="brand-icon"><i class="fas fa-robot"></i></span>
+        <span class="brand-text">AI <strong>CODING TUTOR</strong></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="learn.html" class="nav-link">Learn</a></li>
+        <li><a href="practice.html" class="nav-link active">Practice</a></li>
+        <li><a href="chat.html" class="nav-link">AI Chat</a></li>
+        <li><a href="profile.html" class="nav-link">Profile</a></li>
+        <li><a href="login.html" class="nav-link">Login</a></li>
+        <li><a href="learn.html" class="btn btn-primary nav-cta">Get Started</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="appRoot">
+    <section class="page active">
+      <div class="page-hero gradient-hero">
+        <h1>Practice Coding.<br><span class="gradient-text">Test Your Skills.</span></h1>
+        <p>Sharpen your abilities with real-world coding challenges</p>
+      </div>
+      <div class="section">
+        <div class="section-container">
+          <div class="practice-layout">
+            <div class="practice-sidebar">
+              <div class="donut-card">
+                <div class="donut-wrap">
+                  <canvas id="donutChart" width="120" height="120"></canvas>
+                  <div class="donut-center"><span>72%</span><small>Solved</small></div>
+                </div>
+                <p class="donut-label">Problems Solved</p>
+              </div>
+              <div class="streak-card">
+                <i class="fas fa-fire" style="color:#ff6b35"></i>
+                <div><strong>7 Day Streak!</strong><br><small>Keep it up!</small></div>
+              </div>
+            </div>
+            <div class="practice-main">
+              <div class="practice-tabs">
+                <button class="tab-btn active" data-tab="challenges">Challenges</button>
+                <button class="tab-btn" data-tab="contests">Contests</button>
+              </div>
+              <div class="tab-content active" id="tab-challenges">
+                <div class="challenge-filter">
+                  <button class="chip active" data-diff="all">All</button>
+                  <button class="chip" data-diff="easy">Easy</button>
+                  <button class="chip" data-diff="medium">Medium</button>
+                  <button class="chip" data-diff="hard">Hard</button>
+                </div>
+                <div class="challenges-list" id="challengesList"></div>
+              </div>
+              <div class="tab-content" id="tab-contests">
+                <p>Upcoming contests will be displayed here.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const challenges = [
+        { title: 'Reverse a String', diff: 'easy', lang: ['JavaScript', 'Python'], status: 'solved', xp: 10 },
+        { title: 'FizzBuzz', diff: 'easy', lang: ['JavaScript', 'Python'], status: 'solved', xp: 10 },
+        { title: 'Valid Palindrome', diff: 'easy', lang: ['JavaScript'], status: 'unsolved', xp: 15 },
+        { title: 'Two Sum', diff: 'medium', lang: ['Python', 'JavaScript'], status: 'unsolved', xp: 20 },
+        { title: 'Merge Intervals', diff: 'medium', lang: ['JavaScript'], status: 'unsolved', xp: 30 },
+        { title: 'Trapping Rain Water', diff: 'hard', lang: ['Python'], status: 'unsolved', xp: 50 },
+        { title: 'Dijkstra Shortest Path', diff: 'hard', lang: ['Python', 'C++'], status: 'unsolved', xp: 100 }
+      ];
+
+      function renderChallenges(diff) {
+        const list = document.getElementById('challengesList');
+        list.innerHTML = '';
+        challenges.forEach(ch => {
+          if (diff !== 'all' && ch.diff !== diff) return;
+          let icon = ch.status === 'solved' ? '<i class="fas fa-check-circle" style="color:#00e5ff"></i>' : '<i class="far fa-circle"></i>';
+          let diffColor = ch.diff === 'easy' ? '#00e5ff' : (ch.diff === 'medium' ? '#f7df1e' : '#ff4b4b');
+          let btnText = ch.status === 'solved' ? 'Review' : 'Solve';
+          let btnClass = ch.status === 'solved' ? 'btn-outline' : 'btn-primary';
+          
+          let html = '<div class="challenge-item">' +
+            '<div class="ch-status">' + icon + '</div>' +
+            '<div class="ch-info">' +
+              '<h4>' + ch.title + '</h4>' +
+              '<div class="ch-tags">' +
+                '<span style="color:' + diffColor + '; text-transform:capitalize; font-size:0.8rem">' + ch.diff + '</span> • ' +
+                '<span style="color:#8892b0; font-size:0.8rem">+' + ch.xp + ' XP</span> • ' +
+                '<span style="color:#8892b0; font-size:0.8rem">' + ch.lang.join(', ') + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="ch-action">' +
+              '<button class="btn ' + btnClass + ' btn-sm">' + btnText + '</button>' +
+            '</div>' +
+          '</div>';
+          
+          list.insertAdjacentHTML('beforeend', html);
+        });
+      }
+
+      renderChallenges('all');
+
+      const chips = document.querySelectorAll('.chip');
+      chips.forEach(chip => {
+        chip.addEventListener('click', function() {
+          chips.forEach(c => c.classList.remove('active'));
+          this.classList.add('active');
+          renderChallenges(this.getAttribute('data-diff'));
+        });
+      });
+      
+      const ctx = document.getElementById('donutChart');
+      if (ctx && window.Chart) {
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: { datasets: [{ data: [72, 28], backgroundColor: ['#00d4ff', '#1e293b'], borderWidth: 0 }]},
+            options: { cutout: '80%', responsive: true, plugins: { tooltip: { enabled: false } }}
+        });
+      }
+
+      // Tabs
+      const tabs = document.querySelectorAll('.practice-tabs .tab-btn');
+      const contents = document.querySelectorAll('.practice-main .tab-content');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          tabs.forEach(t => t.classList.remove('active'));
+          contents.forEach(c => c.classList.remove('active'));
+          
+          this.classList.add('active');
+          const target = this.getAttribute('data-tab');
+          document.getElementById('tab-' + target).classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

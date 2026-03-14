@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Coding Tutor – Learn Coding Smarter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-brand" href="index.html">
+        <span class="brand-icon"><i class="fas fa-robot"></i></span>
+        <span class="brand-text">AI <strong>CODING TUTOR</strong></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="learn.html" class="nav-link">Learn</a></li>
+        <li><a href="practice.html" class="nav-link">Practice</a></li>
+        <li><a href="chat.html" class="nav-link">AI Chat</a></li>
+        <li><a href="profile.html" class="nav-link">Profile</a></li>
+        <li><a href="login.html" class="nav-link">Login</a></li>
+        <li><a href="learn.html" class="btn btn-primary nav-cta">Get Started</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="appRoot">
+    <section class="page active" id="page-home">
+      <!-- Hero -->
+      <div class="hero-section">
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="hero-badge"><i class="fas fa-bolt"></i> AI-Powered Learning</div>
+            <h1 class="hero-title">Learn Coding<br><span class="gradient-text">Smarter With AI</span></h1>
+            <p class="hero-subtitle">Improve Skills. Solve Challenges. Get Certified.</p>
+            <div class="hero-actions">
+              <a href="learn.html" class="btn btn-primary btn-lg"><i class="fas fa-rocket"></i> Get Started</a>
+              <button class="btn btn-ghost btn-lg" id="watchDemoBtn"><i class="fas fa-play-circle"></i> Watch Demo</button>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-item"><span class="stat-num" data-target="50">0</span><span>K+</span><small>Students</small></div>
+              <div class="stat-divider"></div>
+              <div class="stat-item"><span class="stat-num" data-target="200">0</span><span>+</span><small>Courses</small></div>
+              <div class="stat-divider"></div>
+              <div class="stat-item"><span class="stat-num" data-target="98">0</span><span>%</span><small>Satisfaction</small></div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-robot-card">
+              <div class="robot-glow"></div>
+              <div class="robot-screen">
+                <div class="screen-header">
+                  <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                  <span class="screen-title">AI Tutor Terminal</span>
+                </div>
+                <div class="code-stream" id="codeStream">
+                  <div class="code-line"><span class="code-keyword">const</span> <span class="code-var">ai</span> <span class="code-op">=</span> <span class="code-fn">new</span> <span class="code-class">AiTutor</span>();</div>
+                  <div class="code-line"><span class="code-var">ai</span>.<span class="code-fn">learn</span>(<span class="code-str">'JavaScript'</span>);</div>
+                  <div class="code-line"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-var">i</span> <span class="code-op">=</span> <span class="code-num">0</span>; <span class="code-var">i</span> <span class="code-op">&lt;</span> <span class="code-num">10</span>; <span class="code-var">i</span>++) {</div>
+                  <div class="code-line indent"><span class="code-var">ai</span>.<span class="code-fn">practice</span>(<span class="code-var">i</span>);</div>
+                  <div class="code-line">}</div>
+                  <div class="code-line"><span class="code-comment">// 🎉 You're improving!</span></div>
+                  <div class="code-line"><span class="code-var">skill</span><span class="code-op">++</span>;</div>
+                  <div class="cursor-blink">|</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Courses Section -->
+      <div class="section" id="coursesSection">
+        <div class="section-container">
+          <div class="section-header">
+            <h2 class="section-title">Explore <span class="gradient-text">Courses</span></h2>
+            <p class="section-sub">Master the most in-demand programming languages with AI guidance</p>
+          </div>
+          <div class="courses-grid">
+            <div class="course-card">
+              <div class="course-icon" style="background:linear-gradient(135deg,#e44d26,#f16529)"><i class="fab fa-html5"></i></div>
+              <h3>HTML</h3>
+              <p>Build web structure & semantics</p>
+              <div class="course-meta"><span class="course-lessons">24 Lessons</span><span class="course-level beginner">Beginner</span></div>
+              <div class="course-progress-bar"><div class="bar-fill" style="width:65%"></div></div>
+              <span class="course-pct">65% Complete</span>
+              <a href="learn.html" class="btn btn-outline course-btn">Continue →</a>
+            </div>
+            <div class="course-card">
+              <div class="course-icon" style="background:linear-gradient(135deg,#264de4,#2965f1)"><i class="fab fa-css3-alt"></i></div>
+              <h3>CSS</h3>
+              <p>Style & animate beautiful interfaces</p>
+              <div class="course-meta"><span class="course-lessons">32 Lessons</span><span class="course-level beginner">Beginner</span></div>
+              <div class="course-progress-bar"><div class="bar-fill" style="width:40%"></div></div>
+              <span class="course-pct">40% Complete</span>
+              <a href="learn.html" class="btn btn-outline course-btn">Continue →</a>
+            </div>
+            <div class="course-card">
+              <div class="course-icon" style="background:linear-gradient(135deg,#f7df1e,#e5c100)"><i class="fab fa-js-square" style="color:#1a1a1a"></i></div>
+              <h3>JavaScript</h3>
+              <p>Create dynamic, interactive experiences</p>
+              <div class="course-meta"><span class="course-lessons">48 Lessons</span><span class="course-level intermediate">Intermediate</span></div>
+              <div class="course-progress-bar"><div class="bar-fill" style="width:20%"></div></div>
+              <span class="course-pct">20% Complete</span>
+              <a href="learn.html" class="btn btn-outline course-btn">Start →</a>
+            </div>
+            <div class="course-card">
+              <div class="course-icon" style="background:linear-gradient(135deg,#3776ab,#ffd43b)"><i class="fab fa-python"></i></div>
+              <h3>Python</h3>
+              <p>Data science, AI & backend dev</p>
+              <div class="course-meta"><span class="course-lessons">56 Lessons</span><span class="course-level advanced">Advanced</span></div>
+              <div class="course-progress-bar"><div class="bar-fill" style="width:5%"></div></div>
+              <span class="course-pct">5% Complete</span>
+              <a href="learn.html" class="btn btn-outline course-btn">Start →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress Chart Section -->
+      <div class="section bg-dark-2">
+        <div class="section-container">
+          <div class="progress-layout">
+            <div class="progress-left">
+              <h2 class="section-title">Your <span class="gradient-text">Progress</span></h2>
+              <p class="section-sub">Track your weekly learning streaks</p>
+              <div class="chart-wrap">
+                <canvas id="progressChart" width="400" height="200"></canvas>
+              </div>
+              <div class="chart-days">
+                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+              </div>
+            </div>
+            <div class="progress-right">
+              <div class="mini-ai-chat">
+                <div class="mini-chat-header">
+                  <i class="fas fa-robot"></i>
+                  <div><strong>AI Chat</strong><br><small>Ask Your Doubts</small></div>
+                  <div class="chat-tags">
+                    <span class="tag html">HTML</span>
+                    <span class="tag css">CSS</span>
+                    <span class="tag js">JavaScript</span>
+                  </div>
+                </div>
+                <div class="mini-chat-messages">
+                  <div class="chat-msg user-msg">How to use arrays?</div>
+                  <div class="chat-msg ai-msg"><i class="fas fa-robot"></i> <span>Use <code>let arr = [1,2,3];</code></span></div>
+                </div>
+                <a href="chat.html" class="btn btn-primary" style="width:100%">Ask AI Now →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- AI Tutor CTA -->
+      <div class="section cta-section">
+        <div class="section-container">
+          <div class="cta-content">
+            <div class="cta-text">
+              <h2>Got Coding Doubts?<br><span class="gradient-text">Ask Our AI Tutor</span></h2>
+              <p>Get instant, personalized answers to all your coding questions powered by cutting-edge AI.</p>
+              <div class="cta-actions">
+                <a href="chat.html" class="btn btn-primary btn-lg">Get Started</a>
+              </div>
+            </div>
+            <div class="cta-visual">
+              <div class="floating-robot">
+                <div class="robot-head">
+                  <div class="robot-face">
+                    <div class="robot-eye left"></div>
+                    <div class="robot-eye right"></div>
+                    <div class="robot-mouth"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

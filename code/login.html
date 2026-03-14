@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - AI Coding Tutor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-brand" href="index.html">
+        <span class="brand-icon"><i class="fas fa-robot"></i></span>
+        <span class="brand-text">AI <strong>CODING TUTOR</strong></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="learn.html" class="nav-link">Learn</a></li>
+        <li><a href="practice.html" class="nav-link">Practice</a></li>
+        <li><a href="chat.html" class="nav-link">AI Chat</a></li>
+        <li><a href="profile.html" class="nav-link">Profile</a></li>
+        <li><a href="login.html" class="nav-link active">Login</a></li>
+        <li><a href="learn.html" class="btn btn-primary nav-cta">Get Started</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="appRoot">
+    <section class="page active">
+      <div class="auth-layout">
+        <div class="auth-visual">
+          <div class="auth-robot">
+            <div class="floating-robot large">
+              <div class="robot-head">
+                <div class="robot-face">
+                  <div class="robot-eye left"></div>
+                  <div class="robot-eye right"></div>
+                  <div class="robot-mouth"></div>
+                </div>
+              </div>
+              <div class="robot-body">
+                <div class="robot-chest"><i class="fas fa-microchip"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="auth-bg-text">
+            <span>HTML</span><span>CSS</span><span>JS</span><span>Python</span><span>React</span><span>Node</span>
+          </div>
+        </div>
+        <div class="auth-card">
+          <div class="auth-card-inner" id="authCardInner">
+            <!-- Login Form -->
+            <div class="auth-form-wrap active" id="loginForm">
+              <div class="auth-logo">
+                <i class="fas fa-robot"></i>
+                <span>AI <strong>CODING TUTOR</strong></span>
+              </div>
+              <h2>Login</h2>
+              <form id="loginFormEl">
+                <div class="form-group">
+                  <label>Email</label>
+                  <div class="input-wrap">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="loginEmail" placeholder="you@example.com" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <div class="input-wrap">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required />
+                    <button type="button" class="toggle-pw" id="toggleLoginPw"><i class="fas fa-eye"></i></button>
+                  </div>
+                </div>
+                <a class="forgot-link" href="#">Forgot Password?</a>
+                <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Login <i class="fas fa-arrow-right"></i></button>
+              </form>
+              <p class="auth-switch">Don't have an account? <a href="#" id="goToSignup">Sign Up →</a></p>
+            </div>
+            <!-- Signup Form -->
+            <div class="auth-form-wrap" id="signupForm" style="display:none;">
+              <div class="auth-logo">
+                <i class="fas fa-robot"></i>
+                <span>AI <strong>CODING TUTOR</strong></span>
+              </div>
+              <h2>Sign Up</h2>
+              <form id="signupFormEl">
+                <div class="form-group">
+                  <label>Username</label>
+                  <div class="input-wrap">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="signupName" placeholder="codewizard" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <div class="input-wrap">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="signupEmail" placeholder="you@example.com" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <div class="input-wrap">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="signupPassword" placeholder="••••••••" required />
+                    <button type="button" class="toggle-pw" id="toggleSignupPw"><i class="fas fa-eye"></i></button>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Create Account <i class="fas fa-arrow-right"></i></button>
+              </form>
+              <p class="auth-switch">Already have an account? <a href="#" id="goToLogin">Login →</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('loginForm');
+      const signupForm = document.getElementById('signupForm');
+      const goToSignup = document.getElementById('goToSignup');
+      const goToLogin = document.getElementById('goToLogin');
+      
+      goToSignup.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginForm.style.display = 'none';
+        signupForm.style.display = 'block';
+      });
+      
+      goToLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        signupForm.style.display = 'none';
+        loginForm.style.display = 'block';
+      });
+
+      document.getElementById('loginFormEl').addEventListener('submit', (e) => {
+        e.preventDefault();
+        window.location.href = 'learn.html';
+      });
+
+      document.getElementById('signupFormEl').addEventListener('submit', (e) => {
+        e.preventDefault();
+        window.location.href = 'thankyou.html';
+      });
+      
+      const toggles = document.querySelectorAll('.toggle-pw');
+      toggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+          const input = this.previousElementSibling;
+          if(input.getAttribute('type') === 'password') {
+            input.setAttribute('type', 'text');
+            this.innerHTML = '<i class="fas fa-eye-slash"></i>';
+          } else {
+            input.setAttribute('type', 'password');
+            this.innerHTML = '<i class="fas fa-eye"></i>';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

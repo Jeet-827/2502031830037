@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chat - AI Coding Tutor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-brand" href="index.html">
+        <span class="brand-icon"><i class="fas fa-robot"></i></span>
+        <span class="brand-text">AI <strong>CODING TUTOR</strong></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="learn.html" class="nav-link">Learn</a></li>
+        <li><a href="practice.html" class="nav-link">Practice</a></li>
+        <li><a href="chat.html" class="nav-link active">AI Chat</a></li>
+        <li><a href="profile.html" class="nav-link">Profile</a></li>
+        <li><a href="login.html" class="nav-link">Login</a></li>
+        <li><a href="learn.html" class="btn btn-primary nav-cta">Get Started</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="appRoot">
+    <section class="page active">
+      <div class="chat-layout">
+        <div class="chat-sidebar">
+          <div class="chat-sidebar-header">
+            <i class="fas fa-robot"></i>
+            <div>
+              <strong>AI Tutor</strong>
+              <small>Online · Ready to help</small>
+            </div>
+            <span class="status-dot"></span>
+          </div>
+          <div class="topic-list">
+            <p class="topic-label">Popular Topics</p>
+            <button class="topic-btn active" data-topic="JavaScript (ES6+)"><i class="fab fa-js"></i> JavaScript (ES6+)</button>
+            <button class="topic-btn" data-topic="React"><i class="fab fa-react"></i> React</button>
+            <button class="topic-btn" data-topic="Python"><i class="fab fa-python"></i> Python</button>
+            <button class="topic-btn" data-topic="CSS Flexbox"><i class="fab fa-css3"></i> CSS Flexbox</button>
+            <button class="topic-btn" data-topic="Data Structures"><i class="fas fa-sitemap"></i> Data Structures</button>
+            <button class="topic-btn" data-topic="Algorithms"><i class="fas fa-code-branch"></i> Algorithms</button>
+          </div>
+          <div class="chat-sidebar-footer">
+            <button class="btn btn-outline" id="clearChatBtn" style="width:100%"><i class="fas fa-trash"></i> Clear Chat</button>
+          </div>
+        </div>
+        <div class="chat-main">
+          <div class="chat-header">
+            <div class="chat-header-info">
+              <h2><i class="fas fa-comments"></i> AI Chat</h2>
+              <p>Curate topics · Chatsin style</p>
+            </div>
+            <div class="chat-header-tags">
+              <span class="tag html" style="background:rgba(228,77,38,0.1); color:#e44d26;">HTML</span>
+              <span class="tag css" style="background:rgba(38,77,228,0.1); color:#264de4;">CSS</span>
+              <span class="tag js" style="background:rgba(247,223,30,0.1); color:#f7df1e;">JavaScript</span>
+            </div>
+          </div>
+          <div class="chat-messages" id="chatMessages">
+            <div class="chat-msg ai-msg">
+              <div class="msg-avatar"><i class="fas fa-robot"></i></div>
+              <div class="msg-bubble">
+                <strong>AI Tutor</strong>
+                <p>Hello! 👋 I'm your AI Coding Tutor. Ask me anything about programming — HTML, CSS, JavaScript, Python, data structures, algorithms, and more!</p>
+                <span class="msg-time">Now</span>
+              </div>
+            </div>
+          </div>
+          <div class="chat-input-area">
+            <div class="chat-input-wrap">
+              <input type="text" id="chatInput" placeholder="Ask a coding question… e.g. How do I center a div in CSS?" />
+              <button class="btn btn-primary" id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+            <div class="quick-prompts">
+              <span>Quick:</span>
+              <button class="qp-btn" data-q="What is a closure in JavaScript?">Closures?</button>
+              <button class="qp-btn" data-q="How to center a div in CSS?">Center div?</button>
+              <button class="qp-btn" data-q="Explain async/await in JavaScript">Async/Await?</button>
+              <button class="qp-btn" data-q="What are Python list comprehensions?">Python lists?</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const chatMessages = document.getElementById('chatMessages');
+      const chatInput = document.getElementById('chatInput');
+      const sendChatBtn = document.getElementById('sendChatBtn');
+      const clearChatBtn = document.getElementById('clearChatBtn');
+
+      function addChatMsg(text, isUser=false) {
+        if(!text) return;
+        const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        const msgClass = isUser ? 'user-msg' : 'ai-msg';
+        const author = isUser ? 'You' : 'AI Tutor';
+        const icon = isUser ? '<i class="fas fa-user-astronaut"></i>' : '<i class="fas fa-robot"></i>';
+        
+        const html = '<div class="chat-msg ' + msgClass + '">' +
+            '<div class="msg-avatar">' + icon + '</div>' +
+            '<div class="msg-bubble">' +
+              '<strong>' + author + '</strong>' +
+              '<p>' + text + '</p>' +
+              '<span class="msg-time">' + time + '</span>' +
+            '</div>' +
+          '</div>';
+          
+        chatMessages.insertAdjacentHTML('beforeend', html);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+      
+      sendChatBtn.addEventListener('click', () => {
+        const text = chatInput.value.trim();
+        if(text) {
+          addChatMsg(text, true);
+          chatInput.value = '';
+          setTimeout(() => addChatMsg("I'm an AI simulation. In a real app, I'd answer: " + text), 1000);
+        }
+      });
+      
+      chatInput.addEventListener('keypress', (e) => {
+        if(e.key === 'Enter') sendChatBtn.click();
+      });
+      
+      const qpBtns = document.querySelectorAll('.qp-btn');
+      qpBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          chatInput.value = this.getAttribute('data-q');
+        });
+      });
+      
+      clearChatBtn.addEventListener('click', () => {
+        chatMessages.innerHTML = '<div class="chat-msg ai-msg">' +
+            '<div class="msg-avatar"><i class="fas fa-robot"></i></div>' +
+            '<div class="msg-bubble">' +
+              '<strong>AI Tutor</strong>' +
+              '<p>Chat cleared! How can I help you today?</p>' +
+              '<span class="msg-time">Now</span>' +
+            '</div>' +
+          '</div>';
+      });
+    });
+  </script>
+</body>
+</html>

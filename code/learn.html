@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn - AI Coding Tutor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="learn-page">
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-brand" href="index.html">
+        <span class="brand-icon"><i class="fas fa-robot"></i></span>
+        <span class="brand-text">AI <strong>CODING TUTOR</strong></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="learn.html" class="nav-link active">Learn</a></li>
+        <li><a href="practice.html" class="nav-link">Practice</a></li>
+        <li><a href="chat.html" class="nav-link">AI Chat</a></li>
+        <li><a href="profile.html" class="nav-link">Profile</a></li>
+        <li><a href="login.html" class="nav-link">Login</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="appRoot">
+    <section class="page active" style="padding-top: 0;">
+      <div class="doc-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="doc-sidebar">
+          <div class="doc-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="docSearch" placeholder="Search lessons..." />
+          </div>
+          <div class="doc-nav">
+            <!-- HTML Section -->
+            <div class="doc-category expanded">
+              <div class="doc-category-header">
+                <i class="fas fa-chevron-down toggle-icon"></i>
+                <i class="fab fa-html5" style="color:#e44d26"></i> HTML Foundations
+              </div>
+              <ul class="doc-category-list">
+                <li class="doc-item active" data-doc="html-intro">Introduction to HTML</li>
+                <li class="doc-item" data-doc="html-elements">Elements & Tags</li>
+                <li class="doc-item" data-doc="html-forms">Forms & Inputs</li>
+              </ul>
+            </div>
+            <!-- CSS Section -->
+            <div class="doc-category expanded">
+              <div class="doc-category-header">
+                <i class="fas fa-chevron-down toggle-icon"></i>
+                <i class="fab fa-css3-alt" style="color:#264de4"></i> CSS Styling
+              </div>
+              <ul class="doc-category-list">
+                <li class="doc-item" data-doc="css-intro">CSS Basics</li>
+                <li class="doc-item" data-doc="css-colors">Colors & Backgrounds</li>
+                <li class="doc-item" data-doc="css-flexbox">Flexbox Layout</li>
+              </ul>
+            </div>
+            <!-- JavaScript Section -->
+            <div class="doc-category expanded">
+              <div class="doc-category-header">
+                <i class="fas fa-chevron-down toggle-icon"></i>
+                <i class="fab fa-js" style="color:#f7df1e"></i> JavaScript
+              </div>
+              <ul class="doc-category-list">
+                <li class="doc-item" data-doc="js-intro">Getting Started</li>
+                <li class="doc-item" data-doc="js-vars">Variables & Types</li>
+                <li class="doc-item" data-doc="js-functions">Functions</li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="doc-main">
+          <div class="doc-header">
+            <div class="doc-breadcrumb" id="docBreadcrumb">HTML Foundations / Introduction</div>
+            <h1 id="docTitle">Introduction to HTML</h1>
+          </div>
+          <div class="doc-content" id="docContent">
+            <!-- Content injected via JS -->
+          </div>
+          <div class="doc-footer">
+            <button class="btn btn-outline" id="prevTopicBtn" disabled><i class="fas fa-arrow-left"></i> Previous Topic</button>
+            <button class="btn btn-primary" id="nextTopicBtn">Next Topic <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <script src="script.js"></script>
+  <script>
+    // Documentation Database
+    const docsDB = {
+      'html-intro': {
+        title: 'Introduction to HTML',
+        breadcrumb: 'HTML Foundations / Introduction',
+        content: `
+          <p>HTML (HyperText Markup Language) is the most basic building block of the Web. It defines the meaning and structure of web content.</p>
+          <div class="doc-alert info">
+            <div class="alert-icon"><i class="fas fa-info-circle"></i></div>
+            <div class="alert-content">Other technologies besides HTML are generally used to describe a web page's appearance/presentation (CSS) or functionality/behavior (JavaScript).</div>
+          </div>
+          <h3>Anatomy of an HTML element</h3>
+          <p>Let's explore a simple paragraph element:</p>
+          <pre><code>&lt;p&gt;My cat is very grumpy&lt;/p&gt;</code></pre>
+          <ul>
+            <li><strong>The opening tag:</strong> This consists of the name of the element (in this case, p), wrapped in opening and closing angle brackets.</li>
+            <li><strong>The closing tag:</strong> This is the same as the opening tag, except that it includes a forward slash before the element name.</li>
+            <li><strong>The content:</strong> This is the content of the element, which in this case is just text.</li>
+          </ul>
+        `
+      },
+      'html-elements': {
+        title: 'Elements & Tags',
+        breadcrumb: 'HTML Foundations / Elements & Tags',
+        content: `
+          <p>HTML uses "markup" to annotate text, images, and other content for display in a Web browser.</p>
+          <h3>Block-level vs Inline Elements</h3>
+          <p>Block-level elements form a visible block on a page — they will appear on a new line from whatever content went before it. Examples include <code>&lt;div&gt;</code>, <code>&lt;h1&gt;</code>, and <code>&lt;p&gt;</code>.</p>
+          <p>Inline elements are those that are contained within block-level elements and surround only small parts of the document's content. Examples include <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, and <code>&lt;strong&gt;</code>.</p>
+        `
+      },
+      'html-forms': {
+        title: 'Forms & Inputs',
+        breadcrumb: 'HTML Foundations / Forms & Inputs',
+        content: `
+          <p>HTML forms are used to collect user input. The user input is most often sent to a server for processing.</p>
+          <pre><code>&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="fname"&gt;First name:&lt;/label&gt;
+  &lt;input type="text" id="fname" name="fname"&gt;&lt;br&gt;&lt;br&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</code></pre>
+          <div class="doc-alert tip">
+            <div class="alert-icon"><i class="fas fa-lightbulb"></i></div>
+            <div class="alert-content">Always use the <code>&lt;label&gt;</code> tag alongside your inputs to improve accessibility and make clickable areas larger.</div>
+          </div>
+        `
+      },
+      'css-intro': {
+        title: 'CSS Basics',
+        breadcrumb: 'CSS Styling / CSS Basics',
+        content: `
+          <p>Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML.</p>
+          <h3>The Box Model</h3>
+          <p>All HTML elements can be considered as boxes. In CSS, the term "box model" is used when talking about design and layout.</p>
+          <div class="doc-image-placeholder">
+            <i class="fas fa-box" style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);"></i>
+            <p>Margin > Border > Padding > Content</p>
+          </div>
+        `
+      },
+      'css-colors': {
+        title: 'Colors & Backgrounds',
+        breadcrumb: 'CSS Styling / Colors',
+        content: `
+          <p>CSS allows you to apply colors to almost any element using various color formats.</p>
+          <pre><code>.my-text {
+  color: #00d4ff; /* Named color or Hex */
+  background-color: rgb(15, 17, 26);
+}</code></pre>
+          <h3>Color Formats</h3>
+          <ol>
+            <li><strong>Hexadecimal:</strong> <code>#ff0000</code></li>
+            <li><strong>RGB/RGBA:</strong> <code>rgba(255, 0, 0, 0.5)</code></li>
+            <li><strong>HSL/HSLA:</strong> <code>hsl(0, 100%, 50%)</code></li>
+          </ol>
+        `
+      },
+      'css-flexbox': {
+        title: 'Flexbox Layout',
+        breadcrumb: 'CSS Styling / Flexbox',
+        content: `
+          <p>The Flexible Box Layout Module, makes it easier to design flexible responsive layout structure without using float or positioning.</p>
+          <pre><code>.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}</code></pre>
+          <div class="doc-alert info">
+            <div class="alert-icon"><i class="fas fa-rocket"></i></div>
+            <div class="alert-content">Flexbox is a 1-dimensional layout model. If you need 2-dimensional layouts (rows AND columns simultaneously), consider CSS Grid.</div>
+          </div>
+        `
+      },
+      'js-intro': {
+        title: 'Getting Started with JS',
+        breadcrumb: 'JavaScript / Getting Started',
+        content: `
+          <p>JavaScript is a scripting language that enables you to create dynamically updating content, control multimedia, animate images, and pretty much everything else.</p>
+          <h3>Adding JS to your page</h3>
+          <pre><code>&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+          <p>Usually, we link JavaScript just before the closing <code>&lt;/body&gt;</code> tag to ensure all HTML is parsed before the script runs.</p>
+        `
+      },
+      'js-vars': {
+        title: 'Variables & Types',
+        breadcrumb: 'JavaScript / Variables',
+        content: `
+          <p>Variables are containers for storing data values.</p>
+          <pre><code>let message = "Hello, World!";
+const PI = 3.14159;
+var oldWay = true; // Try to avoid 'var'</code></pre>
+          <div class="doc-alert tip">
+            <div class="alert-icon"><i class="fas fa-lightbulb"></i></div>
+            <div class="alert-content">Always use <code>const</code> by default, and only use <code>let</code> if you know the value will need to be reassigned later.</div>
+          </div>
+        `
+      },
+      'js-functions': {
+        title: 'Functions',
+        breadcrumb: 'JavaScript / Functions',
+        content: `
+          <p>A JavaScript function is a block of code designed to perform a particular task.</p>
+          <h3>Arrow Functions</h3>
+          <p>Arrow functions were introduced in ES6, allowing a shorter syntax to write function expressions.</p>
+          <pre><code>// Traditional Function
+function add(a, b) {
+  return a + b;
+}
+
+// Arrow Function
+const addArrow = (a, b) => a + b;</code></pre>
+        `
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const docItems = document.querySelectorAll('.doc-item');
+      const docTitle = document.getElementById('docTitle');
+      const docBreadcrumb = document.getElementById('docBreadcrumb');
+      const docContent = document.getElementById('docContent');
+      const prevBtn = document.getElementById('prevTopicBtn');
+      const nextBtn = document.getElementById('nextTopicBtn');
+      const docSearch = document.getElementById('docSearch');
+      
+      const orderedDocs = Array.from(docItems).map(item => item.getAttribute('data-doc'));
+      let currentIndex = 0;
+
+      function loadDoc(docId) {
+        const docInfo = docsDB[docId];
+        if(!docInfo) return;
+
+        docTitle.innerHTML = docInfo.title;
+        docBreadcrumb.innerHTML = docInfo.breadcrumb;
+        docContent.innerHTML = docInfo.content;
+        docContent.style.animation = 'none';
+        docContent.offsetHeight; // Trigger reflow
+        docContent.style.animation = 'fadeIn 0.3s ease-out';
+
+        // Update active class in sidebar
+        docItems.forEach(item => {
+          if(item.getAttribute('data-doc') === docId) {
+            item.classList.add('active');
+            let parentCategory = item.closest('.doc-category');
+            if(parentCategory) parentCategory.classList.add('expanded');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+
+        // Update buttons state
+        currentIndex = orderedDocs.indexOf(docId);
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === orderedDocs.length - 1;
+      }
+
+      // Sidebar Click handlers
+      docItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const docId = item.getAttribute('data-doc');
+          loadDoc(docId);
+        });
+      });
+
+      // Category Toggle
+      const categoryHeaders = document.querySelectorAll('.doc-category-header');
+      categoryHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          header.parentElement.classList.toggle('expanded');
+        });
+      });
+
+      // Previous / Next Buttons
+      prevBtn.addEventListener('click', () => {
+        if(currentIndex > 0) loadDoc(orderedDocs[currentIndex - 1]);
+      });
+      nextBtn.addEventListener('click', () => {
+        if(currentIndex < orderedDocs.length - 1) loadDoc(orderedDocs[currentIndex + 1]);
+      });
+
+      // Search functionality
+      docSearch.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        docItems.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          if(text.includes(term)) {
+            item.style.display = 'block';
+            item.closest('.doc-category').classList.add('expanded');
+            item.closest('.doc-category').style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Hide empty categories
+        document.querySelectorAll('.doc-category').forEach(cat => {
+          const visibleItems = cat.querySelectorAll('.doc-item[style="display: block;"], .doc-item:not([style*="none"])');
+          if(visibleItems.length === 0 && term !== '') {
+            cat.style.display = 'none';
+          } else {
+            cat.style.display = 'block';
+          }
+        });
+      });
+
+      // Initially load the first doc
+      if(orderedDocs.length > 0) {
+        loadDoc(orderedDocs[0]);
+      }
+    });
+  </script>
+</body>
+</html>
